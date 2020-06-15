@@ -10,5 +10,7 @@
 
 
 # Work Log 
-06/13/20
+
+- Created Code Files for Dayplanner Application
+- Created Design for application
 - 
