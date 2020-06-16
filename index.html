@@ -30,55 +30,55 @@
     </header>
     <div class="container ">
       <!-- Timeblocks go here -->
-        <div class="row">
+        <div class="row" value="9">
           <p class="hour">9 AM </p>
           <textarea class="time-block description col-10"></textarea>
           <button  class="saveBtn">Save</button>
         </div>
 
-        <div class="row">
+        <div class="row" value="10">
           <p class="hour">10AM</p>
           <textarea class="time-block col-10"></textarea>
           <button class="saveBtn">Save</button>
         </div>
         
-        <div class="row">
+        <div class="row" value="11">
           <p class="hour">11AM</p>
           <textarea class="time-block col-10"></textarea>
           <button class="saveBtn">Save</button>
         </div>
 
-        <div class="row">
+        <div class="row" value="12">
           <p class="hour">12PM</p>
           <textarea class="time-block col-10"></textarea>
           <button class="saveBtn">Save</button>
         </div>
 
-        <div class="row">
+        <div class="row" value="13">
           <p class="hour">1 PM </p>
           <textarea class="time-block col-10"></textarea>
           <button class="saveBtn">Save</button>
         </div>
         
-        <div class="row">
+        <div class="row" value="14">
           <p class="hour">2 PM </p>
           <textarea class="time-block col-10"></textarea>
           <button class="saveBtn">Save</button>
         </div>
 
-        <div class="row">
+        <div class="row" value="15">
           <p class="hour">3 PM </p>
           <textarea class="time-block col-10"></textarea>
           <button class="saveBtn">Save</button>
         </div>
 
-        <div class="row">
+        <div class="row" value="16">
           <p class="hour">4 PM </p>
           <textarea class="time-block col-10"></textarea>
           <button class="saveBtn">Save</button>
         </div>
         
-        <div class="row">
+        <div class="row" value="17">
           <p class="hour">5 PM </p>
           <textarea class="time-block col-10"></textarea>
           <button class="saveBtn">Save</button>
@@ -88,7 +88,63 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>
+      $(this).ready(function(){
 
+        let m = moment().format('MMMM Do YYYY');
+        
+        // This Displays Current Date On Top
+        $("#currentDay").text(m)
+        
+        let time = moment().format('LT')
+        let block = $(".time-block")
+
+        $(".time-block").text(localStorage.getItem("Schedule"))
+
+
+        
+        // Color By Hour Area
+        if($(".row").val > time){
+          block.addClass("future")
+        }else{
+          block.addClass("past")
+        }if($(".row").val == time){
+          block.addClass("present")
+        }
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        //// This section is for Textarea function
+
+        $(".saveBtn").on("click",function(){
+
+          let feedBack = ($(".time-block").val());
+          localStorage.setItem("Schedule",feedBack)
+        
+          let local = localStorage.getItem("Schedule")
+          
+          $(".time-block").text(local)
+
+        })
+          
+
+
+
+
+
+
+
+      });
+      
+      
+    </script>
   </body>
 
 </html>
