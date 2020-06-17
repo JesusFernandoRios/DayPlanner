@@ -117,7 +117,7 @@
               localStorage.setItem("myDay", JSON.stringify(myDay));
           }
 
-          // sets any data in localStorage to the view
+          // sets any data in localStorage to the textarea
           function displayReminders() {
               myDay.forEach(function (_thisHour) {
                   $(`#${_thisHour.id}`).val(_thisHour.reminder);
@@ -126,7 +126,7 @@
 
           // Shows Local Storage if theres Any
           function init() {
-              var storedDay = JSON.parse(localStorage.getItem("myDay"));
+              let storedDay = JSON.parse(localStorage.getItem("myDay"));
 
               if (storedDay) {
                   myDay = storedDay;
